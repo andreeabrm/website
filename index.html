@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website!</title>
+    <link rel="icon" type="image/png" href="images/ab-logo (1).png">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Homemade+Apple&family=Sacramento&family=Yeseva+One&family=Zilla+Slab:wght@300&display=swap');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    width: auto;
+    height: auto;
+    max-width: 65%;
+    max-height: 55%;
+    object-fit: contain;
+}
+
+h1 {
+    color: white;
+    font-family: 'Sacramento', cursive;
+    font-size: 8vh;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.043);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-family: 'Zilla Slab', serif;
+}
+
+li {
+    margin: 0 60px;
+    line-height: 50px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+li:hover {
+    background-color: #33333313;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.689);
+    transition: color 0.4s;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+a:hover {
+    color: #83b5d4;
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #abf9fc93;
+    color: #fff;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.breaking-news {
+    display: inline-block;
+    padding: 0 20px;
+    font-family: 'Yeseva One', cursive;
+    color: rgb(115, 185, 255);
+}
+
+.news-text {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.wave-button {
+    position: fixed;
+    bottom: 90px; 
+    right: 10px; 
+    width: 50px;
+    height: 50px; 
+    z-index: 10; 
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#contact-button {
+bottom: 30px;
+border-color: rgb(53, 101, 90);
+}
+
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.918);
+    width: 450px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+#contact-form textarea {
+    height: 80px;
+}
+
+#contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #83b5d4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Zilla Slab', serif;
+}
+
+#contact-form button:hover {
+    background-color: #619fb9;
+}
+
+
+.wave-button:hover {
+    border: 2px solid #83b5d4; 
+    transform: scale(1.1);
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.wave-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="muzica.html">MUSIC</a></li>
+            <li><a href="carti.html">BOOKS</a></li>
+            <li><a href="filme.html">MOVIES</a></li>
+            <li><a href="teme.html">PROJECTS</a></li>
+        </ul>
+    </nav>
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="videos/sea_-_24216 (720p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <h1>Bună, eu sunt Andreea.</h1>
+
+    <button class="wave-button" id="audioButton">
+        <img class="logo-image" src="images/waves-logo (1).png" alt="Logo">
+    </button>
+    
+    <audio id="audio1" preload="auto">
+        <source src="ocean-sea-soft-waves-121349.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <button class="wave-button" id="contact-button">
+        <img class="logo-image" src="images/Contact.png" alt="Logo">
+    </button>
+
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <span class="close-button" id="close-button">&times;</span>
+            <h2>Contact Form</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">SEND</button>
+            </form>
+        </div>
+    </div>
+
+    <button class="wave-button" id="audioButton2">
+        <audio id="audio2" preload="auto">
+            <source src="ocean-sea-soft-waves-121349.mp3" type="audio/mpeg">
+            <source src="ocean-sea-soft-waves-121349.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>        
+    </button>
+
+    <div class="bottom-bar">
+        <div class="breaking-news">
+            <marquee behavior="scroll" direction="left">
+                <span class="news-text">Şi sunt programatoare. 💻</span>
+            </marquee>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const paragraph = document.querySelector("h1");
+
+    const button = document.querySelector(".wave-button");
+    button.addEventListener("click", function() {
+        paragraph.style.color = "blue";
+    });
+
+    const audioButton1 = document.getElementById("audioButton");
+    const audio1 = document.getElementById("audio1");
+    let isPlaying1 = false;
+
+    audioButton1.addEventListener("click", function() {
+        if (isPlaying1) {
+            audio1.pause();
+            isPlaying1 = false;
+        } else {
+            audio1.play();
+            isPlaying1 = true;
+        }
+    });
+
+    const audioButton2 = document.getElementById("audioButton2");
+    const audio2 = document.getElementById("audio2");
+    let isPlaying2 = false;
+
+    audioButton2.addEventListener("click", function() {
+        if (isPlaying2) {
+            audio2.pause();
+            isPlaying2 = false;
+        } else {
+            audio2.play();
+            isPlaying2 = true;
+        }
+    });
+
+    const contactButton = document.getElementById("contact-button");
+    const popup = document.getElementById("popup");
+
+    contactButton.addEventListener("click", function() {
+        popup.style.display = "block";
+    });
+
+    const closeButton = document.getElementById("close-button");
+    closeButton.addEventListener("click", function() {
+        popup.style.display = "none";
+    });
+
+    const contactForm = document.getElementById("contact-form");
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        alert("Your message has been submitted!");
+
+        popup.style.display = "none";
+    });
+});
+
+function isValidEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+    </script>
+</body>
+</html>
